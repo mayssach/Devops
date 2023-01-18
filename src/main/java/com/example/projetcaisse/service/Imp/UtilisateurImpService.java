@@ -18,6 +18,11 @@ public class UtilisateurImpService implements UtilisateurService {
     }
 
     @Override
+    public Utilisateur getUtilisateurByCin(String cin) {
+        return utilisateurRepository.findUtilisateurByCin(cin);
+    }
+
+    @Override
     public List<Utilisateur> getUtilisateurList() {
         return (List<Utilisateur>)utilisateurRepository.findAll();
     }

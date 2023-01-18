@@ -27,8 +27,8 @@ public class Utilisateur implements Serializable {
      * User id
      */
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "usr_generator")
-    @SequenceGenerator(name = "usr_generator", sequenceName = "usr_SEQ", initialValue = 1, allocationSize = 1)
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SEQUENCE1")
+    @SequenceGenerator(name="SEQUENCE1", sequenceName="SEQUENCE1", allocationSize=1)
     @Column(name = "idUser", updatable = false, nullable = false)
     private Long idUser ;
 
@@ -41,23 +41,15 @@ public class Utilisateur implements Serializable {
     @Column(name="prenom")
     private String prenom ;
 
-    @Column(name="dateNais")
-    private String dateNais ;
+    @Column(name="adresse")
+    private String adresse ;
 
-    @Column(name="email")
-    private String email ;
+    @Column(name="numCompte")
+    private Long numCompte;
 
-    @Column(name="login")
-    private String login ;
+    @Column(name="grade")
+    private String grade;
 
-    @Column(name="password")
-    private String password ;
-
-    @Column(name="active")
-    private int active ;
-
-    @OneToMany(mappedBy="utilisateur")
-    private List<Ticket> tickets;
 
 }
 

@@ -1,7 +1,6 @@
 package com.example.projetcaisse.rest.controller;
 
 import com.example.projetcaisse.model.entity.Utilisateur;
-import com.example.projetcaisse.model.entity.Utilisateur;
 import com.example.projetcaisse.rest.dto.UtilisateurDto;
 import com.example.projetcaisse.service.UtilisateurService;
 import org.modelmapper.ModelMapper;
@@ -31,6 +30,13 @@ public class UtilisateurController {
     @GetMapping("/utilisateurs/{idUtilisateur}")
     public Object Utilisateur(@PathVariable Long idUtilisateur ) {
         Utilisateur utilisateur = utilisateurService.getUtilisateur(idUtilisateur) ;
+        UtilisateurDto utilisateurDto= modelMapper.map(utilisateur, UtilisateurDto.class);
+        return ResponseEntity.status(HttpStatus.OK).body(utilisateurDto);
+    }
+
+    @GetMapping("/utilisateurs/cin/{cin}")
+    public Object UtilisateurCin(@PathVariable Long cin) {
+        Utilisateur utilisateur = utilisateurService.getUtilisateurByCin(cin.toString()) ;
         UtilisateurDto utilisateurDto= modelMapper.map(utilisateur, UtilisateurDto.class);
         return ResponseEntity.status(HttpStatus.OK).body(utilisateurDto);
     }

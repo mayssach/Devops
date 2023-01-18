@@ -6,6 +6,7 @@ import java.util.List;
 
 public interface UtilisateurService {
     Utilisateur getUtilisateur(Long id);
+    Utilisateur getUtilisateurByCin(String cin);
     List<Utilisateur> getUtilisateurList();
     Utilisateur AddUtilisateur(Utilisateur utilisateur);
     Utilisateur UpdateUtilisateur(Long id,Utilisateur utilisateur);

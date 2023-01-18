@@ -4,4 +4,5 @@ import com.example.projetcaisse.model.entity.Utilisateur;
 import org.springframework.data.repository.CrudRepository;
 
 public interface UtilisateurRepository extends CrudRepository<Utilisateur,Long> {
+    Utilisateur findUtilisateurByCin(String cin);
 }

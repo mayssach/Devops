@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.persistence.Column;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -17,9 +19,7 @@ public class UtilisateurDto {
     private String cin ;
     private String nom ;
     private String prenom ;
-    private String dateNais ;
-    private String email ;
-    private String login ;
-    private String password ;
-    private int active ;
+    private String adresse ;
+    private Long numCompte;
+    private String grade;
 }
