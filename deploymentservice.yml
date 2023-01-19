@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: employee-deployment
+  labels:
+    app: employee
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: employee
+  template:
+    metadata:
+      labels:
+        app: employee
+    spec:
+      containers:
+        - name: employee
+          image: mayssachihi/employee
+          ports:
+            - containerPort: 8082
+
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: nodeapp-service
+spec:
+  selector:
+    app: nodeapp
+  type: LoadBalancer
+  ports:
+    - protocol: TCP
+      port: 5000
+      targetPort: 3000
+      nodePort: 31110
